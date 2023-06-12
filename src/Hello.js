@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 export default function Hello() {
 
-  const [ name, setName ] = useState('Hallo');	
+  const { name1, setName1 } = useOutletContext();
 
   return (
     <div>
-      <p><input onInput={onTextInputModified} value={name}></input></p>
-      <p>{name}</p>
+      <p><input onInput={onTextInputModified} value={name1}></input></p>
+      <p>{name1}</p>
     </div>
   );
 
   function onTextInputModified(e) {
-    setName(e.target.value);
+    setName1(e.target.value);
   }
 }

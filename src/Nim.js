@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 export default function Nim() {
 
-  const [ name, setName ] = useState('Hallo');	
+  const { name2, setName2 } = useOutletContext();
 
   return (
     <div>
-      <p><input onInput={onTextInputModified} value={name}></input></p>
-      <p>{name}</p>
+      <p><input onInput={onTextInputModified} value={name2}></input></p>
+      <p>{name2}</p>
     </div>
   );
 
   function onTextInputModified(e) {
-    setName(e.target.value);
+    setName2(e.target.value);
   }
 }

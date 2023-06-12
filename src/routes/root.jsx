@@ -1,6 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
+import { useState } from 'react';
 
 export default function Root() {
+  const [name1, setName1] = useState('Hallo');
+  const [name2, setName2] = useState('Hallo');
+  const context = {
+    name1 : name1,
+    setName1 : setName1,
+    name2 : name2,
+    setName2 : setName2
+  }
   return (
     <>
       <div id="sidebar">
@@ -16,7 +25,7 @@ export default function Root() {
         </nav>
       </div>
       <div id="detail">
-        <Outlet />
+        <Outlet context={context}/>
       </div>
     </>
   );
