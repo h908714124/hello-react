@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function App() {
+export default function Hello() {
 
   const [ name, setName ] = useState('Hallo');	
 
