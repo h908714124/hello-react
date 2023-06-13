@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 export default function Root() {
   const context = {
-    'hello-state': useState('Hallo'),
-    'nim-state': useState('Hallo')
+    'hello-state': { name: useState('Hallo') },
+    'nim-state': { name: useState('Hallo') }
   }
   return (
     <>

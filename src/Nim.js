@@ -2,7 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 
 export default function Nim() {
 
-  const { 'nim-state' :  [ name, setName ] } = useOutletContext();
+  const { 'nim-state' :  { name: [ name, setName ] } } = useOutletContext();
 
   return (
     <div>

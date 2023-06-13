@@ -2,7 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 
 export default function Hello() {
 
-  const { 'hello-state' :  [ name, setName ] } = useOutletContext();
+  const { 'hello-state' :  { name: [ name, setName ] } } = useOutletContext();
 
   return (
     <div>
