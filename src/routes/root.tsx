@@ -1,8 +1,14 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useOutletContext } from "react-router-dom";
 import { useState } from 'react';
+import { HelloState } from '../types';
+
+type ContextType = { 
+  'hello-state': HelloState,
+  'nim-state' : HelloState,
+};
 
 export default function Root() {
-  const context = {
+  const context : ContextType = {
     'hello-state': { name: useState('Hallo') },
     'nim-state': { name: useState('Hallo') }
   }
@@ -25,4 +31,8 @@ export default function Root() {
       </div>
     </>
   );
+}
+
+export function useContext() {
+  return useOutletContext<ContextType>();
 }
