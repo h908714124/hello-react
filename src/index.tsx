@@ -17,7 +17,7 @@ export function Root() {
   const context: ContextType = {
     hello: { name: useState('Hallo') },
     nim: {
-      name: useState('Hallo'),
+      name: 'Hallo',
       checked: useState(true),
     }
   };
