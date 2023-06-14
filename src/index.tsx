@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
+  Link,
+  Outlet,
   RouterProvider,
+  useOutletContext,
 } from "react-router-dom";
-import Root from "./routes/root";
 import Hello from './Hello';
 import Nim from './Nim';
+import { ContextType } from './types';
+
+export default function Root() {
+  const context: ContextType = {
+    hello: { name: useState('Hallo') },
+    nim: { name: useState('Hallo') }
+  };
+  return (
+    <>
+      <div id="sidebar">
+        <nav>
+          <ul>
+            <li>
+              <Link to={`/hello`}>Hello React</Link>
+            </li>
+            <li>
+              <Link to={`/nim`}>Play Nim</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="detail">
+        <Outlet context={context} />
+      </div>
+    </>
+  );
+}
 
 const router = createBrowserRouter([
   {
@@ -30,3 +59,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+export function useContext() {
+  return useOutletContext<ContextType>();
+}

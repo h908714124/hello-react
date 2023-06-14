@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import { useContext } from './routes/root';
+import { useContext } from './index';
 
 export default function Hello() {
 
