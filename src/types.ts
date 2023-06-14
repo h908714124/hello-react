@@ -3,11 +3,11 @@ type HelloState = {
 }
 
 type NimState = {
-    name: string;
     checked: [boolean, (value: boolean) => void];
 }
 
 export type ContextType = {
     hello: HelloState,
     nim: NimState,
+    model: any
 };

@@ -13,13 +13,15 @@ import Hello from './Hello';
 import Nim from './Nim';
 import { ContextType } from './types';
 
+const model = { name: 'Hallo' }
+
 export function Root() {
   const context: ContextType = {
     hello: { name: useState('Hallo') },
     nim: {
-      name: 'Hallo',
       checked: useState(true),
-    }
+    },
+    model: model,
   };
   return (
     <>
