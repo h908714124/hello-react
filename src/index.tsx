@@ -11,7 +11,7 @@ import Hello from './Hello';
 import Nim from './Nim';
 import { ContextType } from './types';
 
-export default function Root() {
+export function Root() {
   const context: ContextType = {
     hello: { name: useState('Hallo') },
     nim: { name: useState('Hallo') }
@@ -37,6 +37,7 @@ export default function Root() {
   );
 }
 
+// https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,6 +61,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   </React.StrictMode>
 );
 
+// https://reactrouter.com/en/main/hooks/use-outlet-context
 export function useContext() {
   return useOutletContext<ContextType>();
 }
