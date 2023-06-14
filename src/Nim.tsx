@@ -3,7 +3,7 @@ import { useContext } from './index';
 
 export default function Nim() {
 
-  const [ name, setName ] = useContext().nim.name;
+  const [name, setName] = useContext().nim.name;
 
   return (
     <div>

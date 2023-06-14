@@ -3,7 +3,7 @@ import { useContext } from './index';
 
 export default function Hello() {
 
-  const [ name, setName ] = useContext().hello.name;
+  const [name, setName] = useContext().hello.name;
 
   return (
     <div>
