@@ -3,7 +3,7 @@ import { useContext } from './routes/root';
 
 export default function Hello() {
 
-  const { 'hello-state' :  { name: [ name, setName ] } } = useContext();
+  const [ name, setName ] = useContext().hello.name;
 
   return (
     <div>

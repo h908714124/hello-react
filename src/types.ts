@@ -1,3 +1,3 @@
 export type HelloState = {
-    name: [string, React.Dispatch<React.SetStateAction<string>>];
+    name: [string, (value: string) => void];
 }

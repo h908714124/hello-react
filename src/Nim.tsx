@@ -3,7 +3,7 @@ import { useContext } from './routes/root';
 
 export default function Nim() {
 
-  const { 'nim-state' :  { name: [ name, setName ] } } = useContext();
+  const [ name, setName ] = useContext().nim.name;
 
   return (
     <div>

@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { HelloState } from '../types';
 
 type ContextType = { 
-  'hello-state': HelloState,
-  'nim-state' : HelloState,
+  hello: HelloState,
+  nim : HelloState,
 };
 
 export default function Root() {
   const context : ContextType = {
-    'hello-state': { name: useState('Hallo') },
-    'nim-state': { name: useState('Hallo') }
+    hello: { name: useState('Hallo') },
+    nim: { name: useState('Hallo') }
   }
   return (
     <>
