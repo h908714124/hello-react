@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
+  createRoutesFromElements,
   Link,
   Outlet,
+  Route,
   RouterProvider,
   useOutletContext,
 } from "react-router-dom";
@@ -38,22 +40,13 @@ export function Root() {
 }
 
 // https://reactrouter.com/en/main/start/tutorial
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        path: "hello",
-        element: <Hello />,
-      },
-      {
-        path: "nim",
-        element: <Nim />,
-      },
-    ],
-  }
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" Component={Root}>
+      <Route path="hello" Component={Hello} />
+      <Route path="nim" Component={Nim} />
+    </Route>
+  ));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
