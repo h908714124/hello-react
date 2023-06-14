@@ -3,7 +3,7 @@ type HelloState = {
 }
 
 type NimState = {
-    name: [string, (value: string) => void];
+    name: string;
     checked: [boolean, (value: boolean) => void];
 }
 
