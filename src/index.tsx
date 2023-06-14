@@ -16,7 +16,10 @@ import { ContextType } from './types';
 export function Root() {
   const context: ContextType = {
     hello: { name: useState('Hallo') },
-    nim: { name: useState('Hallo') }
+    nim: {
+      name: useState('Hallo'),
+      checked: useState(true),
+    }
   };
   return (
     <>
