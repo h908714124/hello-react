@@ -1,9 +1,10 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { useContext } from './index';
 
 export default function Hello() {
 
-  const [name, setName] = useContext().hello.name;
+  const model = useContext().model.hello;
+  const [name, setName] = useState(model.name);
 
   return (
     <div>
@@ -14,5 +15,6 @@ export default function Hello() {
 
   function onTextInputModified(e: FormEvent<HTMLInputElement>) {
     setName(e.currentTarget.value);
+    model.name = e.currentTarget.value;
   }
 }

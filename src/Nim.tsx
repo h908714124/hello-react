@@ -1,10 +1,10 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { useContext } from './index';
 
 export default function Nim() {
 
-  const model = useContext().model;
-  const [checked, setChecked] = useContext().nim.checked;
+  const model = useContext().model.nim;
+  const [checked, setChecked] = useState(model.checked);
 
   return (
     <div>
@@ -16,6 +16,7 @@ export default function Nim() {
 
   function onCheckboxModified(e: FormEvent<HTMLInputElement>) {
     setChecked(e.currentTarget.checked);
+    model.checked = e.currentTarget.checked
   }
 
   function onTextInputModified(e: FormEvent<HTMLInputElement>) {

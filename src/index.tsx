@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
@@ -13,14 +13,16 @@ import Hello from './Hello';
 import Nim from './Nim';
 import { ContextType } from './types';
 
-const model = { name: 'Hallo' }
+const model = {
+  hello: { name: 'Hallo' },
+  nim: {
+    checked: true,
+    name : 'Hallo',
+  },
+}
 
 export function Root() {
   const context: ContextType = {
-    hello: { name: useState('Hallo') },
-    nim: {
-      checked: useState(true),
-    },
     model: model,
   };
   return (
