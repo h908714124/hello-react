@@ -4,11 +4,11 @@
       "id": 1,
       "to": {
         "hello": {
-          "name": "Hallo"
+          "name": "Play React!"
         },
         "nim": {
           "checked": true,
-          "name": "Hallo"
+          "name": "Play Nim!"
         }
       }
     }

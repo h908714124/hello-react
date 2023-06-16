@@ -1,30 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
-  createRoutesFromElements,
   Link,
   Outlet,
-  Route,
+  redirect,
   RouterProvider,
   useOutletContext,
 } from "react-router-dom";
-import Hello from './Hello';
-import Nim from './Nim';
-import { ContextType } from './types';
+import Hello from "./Hello";
+import Nim from "./Nim";
+import { ContextType } from "./types";
 
-const model = {
-  hello: { name: 'Hallo' },
-  nim: {
-    checked: true,
-    name : 'Hallo',
-  },
-}
+const context: ContextType = {
+  model: undefined,
+};
 
 export function Root() {
-  const context: ContextType = {
-    model: model,
-  };
+  useEffect(() => {
+    fetch("http://localhost:3004/account/1")
+      .then((response) => response.json())
+      .then((data) => data.to)
+      .then((to) => {
+        context.model = to;
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
     <>
       <div id="sidebar">
@@ -47,15 +51,36 @@ export function Root() {
 }
 
 // https://reactrouter.com/en/main/start/tutorial
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" Component={Root}>
-      <Route path="hello" Component={Hello} />
-      <Route path="nim" Component={Nim} />
-    </Route>
-  ));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "hello",
+        element: <Hello />,
+        loader: async () => {
+          if (context.model === undefined) {
+            return redirect("/");
+          }
+          return null;
+        },
+      },
+      {
+        path: "nim",
+        element: <Nim />,
+        loader: async () => {
+          if (context.model === undefined) {
+            return redirect("/");
+          }
+          return null;
+        },
+      },
+    ],
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
