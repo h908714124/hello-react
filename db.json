@@ -4,7 +4,9 @@
       "id": 1,
       "to": {
         "hello": {
-          "name": "Play React!"
+          "name": "Play React!",
+          "email": "a@b.de",
+          "number": ""
         },
         "nim": {
           "checked": true,
