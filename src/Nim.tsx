@@ -16,7 +16,7 @@ export default function Nim() {
 
   function onCheckboxModified(e: FormEvent<HTMLInputElement>) {
     setChecked(e.currentTarget.checked);
-    model.checked = e.currentTarget.checked
+    model.checked = e.currentTarget.checked;
   }
 
   function onTextInputModified(e: FormEvent<HTMLInputElement>) {
