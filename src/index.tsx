@@ -19,13 +19,19 @@ const context: ContextType = {
 export function Root() {
   useEffect(() => {
     fetch("http://localhost:3004/account/1")
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        }
+        throw new Error('Something went wrong');
+      })
       .then((response) => response.json())
       .then((data) => data.to)
       .then((to) => {
         context.model = to;
       })
       .catch((err) => {
-        console.log(err.message);
+        alert(err.message);
       });
   }, []);
 
@@ -50,32 +56,27 @@ export function Root() {
   );
 }
 
+const createRouterNode = (path: string, element: React.ReactNode) => {
+  return {
+    path: path,
+    element: element,
+    loader: async () => {
+      if (context.model === undefined) {
+        return redirect("/");
+      }
+      return null;
+    },
+  }
+}
+
 // https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
-      {
-        path: "hello",
-        element: <Hello />,
-        loader: async () => {
-          if (context.model === undefined) {
-            return redirect("/");
-          }
-          return null;
-        },
-      },
-      {
-        path: "nim",
-        element: <Nim />,
-        loader: async () => {
-          if (context.model === undefined) {
-            return redirect("/");
-          }
-          return null;
-        },
-      },
+      createRouterNode("hello", <Hello />),
+      createRouterNode("nim", <Nim />),
     ],
   },
 ]);
