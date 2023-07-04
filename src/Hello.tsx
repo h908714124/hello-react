@@ -27,8 +27,8 @@ export default function Hello() {
     model.number = e.target.value;
   }
 
-  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     alert(JSON.stringify(model));
   }
 
