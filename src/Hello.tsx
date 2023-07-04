@@ -6,11 +6,30 @@ export default function Hello() {
 
   const model = useContext().model.hello;
   const [name, setName] = useState(model.name);
-  const { register }  = useForm({defaultValues : {
-    name: model.name,
-    email : model.email,
-    number : model.number
-  }});
+  const { register } = useForm({
+    defaultValues: {
+      name: model.name,
+      email: model.email,
+      number: model.number
+    }
+  });
+
+  const onNameModified = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+    model.name = e.target.value;
+  }
+
+  const onEmailModified = (e: ChangeEvent<HTMLInputElement>) => {
+    model.email = e.target.value;
+  }
+
+  const onNumberModified = (e: ChangeEvent<HTMLInputElement>) => {
+    model.number = e.target.value;
+  }
+
+  const onOkButtonClicked = () => {
+    alert(JSON.stringify(model));
+  }
 
   return (
     <div>
@@ -21,21 +40,4 @@ export default function Hello() {
       <p><button type='submit' onClick={onOkButtonClicked}>OK</button></p>
     </div>
   );
-
-  function onNameModified(e: ChangeEvent<HTMLInputElement>) {
-    setName(e.target.value);
-    model.name = e.target.value;
-  }
-
-  function onEmailModified(e: ChangeEvent<HTMLInputElement>) {
-    model.email = e.target.value;
-  }
-
-  function onNumberModified(e: ChangeEvent<HTMLInputElement>) {
-    model.number = e.target.value;
-  }
-
-  function onOkButtonClicked() {
-    alert(JSON.stringify(model));
-  }
 }
