@@ -27,17 +27,20 @@ export default function Hello() {
     model.number = e.target.value;
   }
 
-  const onOkButtonClicked = () => {
+  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     alert(JSON.stringify(model));
   }
 
   return (
-    <div>
-      <p><input {...register("name")} onChange={onNameModified}></input></p>
-      <p><input {...register("email")} onChange={onEmailModified}></input></p>
-      <p><input {...register("number")} onChange={onNumberModified}></input></p>
-      <p>{name}</p>
-      <p><button type='submit' onClick={onOkButtonClicked}>OK</button></p>
-    </div>
+    <form onSubmit={onFormSubmit}>
+      <div>
+        <p><input {...register("name")} onChange={onNameModified}></input></p>
+        <p><input {...register("email")} onChange={onEmailModified}></input></p>
+        <p><input {...register("number")} onChange={onNumberModified}></input></p>
+        <p>{name}</p>
+        <p><button type='submit'>OK</button></p>
+      </div>
+    </form>
   );
 }
