@@ -35,11 +35,11 @@ export default function Hello() {
   return (
     <form onSubmit={onFormSubmit}>
       <div>
-        <p><input {...register("name")} onChange={onNameModified}></input></p>
-        <p><input {...register("email")} onChange={onEmailModified}></input></p>
-        <p><input {...register("number")} onChange={onNumberModified}></input></p>
+        <p><input className='border' {...register("name")} onChange={onNameModified}></input></p>
+        <p><input className='border' {...register("email")} onChange={onEmailModified}></input></p>
+        <p><input className='border' {...register("number")} onChange={onNumberModified}></input></p>
         <p>{name}</p>
-        <p><button type='submit'>OK</button></p>
+        <p><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>OK</button></p>
       </div>
     </form>
   );
