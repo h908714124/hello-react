@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { useContext } from './index';
+import Button from './components/Button';
 
 export default function Nim() {
 
@@ -23,7 +24,7 @@ export default function Nim() {
     <div>
       <p><input type="checkbox" onChange={onCheckboxModified} checked={checked}></input></p>
       <p><input onChange={onTextInputModified} defaultValue={model.name} disabled={!checked}></input></p>
-      <button type='submit' onClick={onSubmitButtonClicked}>OK</button>
+      <Button onClick={onSubmitButtonClicked}>OK</Button>
     </div>
   );
 }

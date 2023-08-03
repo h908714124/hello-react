@@ -11,6 +11,7 @@ import {
 import Hello from "./Hello";
 import Nim from "./Nim";
 import { ContextType } from "./types";
+import "./index.css";
 
 const context: ContextType = {
   model: undefined,
@@ -35,16 +36,21 @@ export function Root() {
       });
   }, []);
 
+  const styleTab = "bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold";
+
   return (
     <>
+      <h1 className="text-3xl font-bold underline">
+        Hello world!
+      </h1>
       <div id="sidebar">
         <nav>
-          <ul>
-            <li>
-              <Link to={`/hello`}>Hello React</Link>
+          <ul className="flex border-b">
+            <li className="-mb-px mr-1">
+              <Link className={styleTab} to={`/hello`}>Hello React</Link>
             </li>
-            <li>
-              <Link to={`/nim`}>Play Nim</Link>
+            <li className="-mb-px mr-1">
+              <Link className={styleTab} to={`/nim`}>Play Nim</Link>
             </li>
           </ul>
         </nav>
