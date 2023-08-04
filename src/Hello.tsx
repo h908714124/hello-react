@@ -1,10 +1,12 @@
 import { ChangeEvent, useState } from 'react';
-import { useContext } from './index';
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
+import { useLoaderData } from 'react-router-dom';
 
 export default function Hello() {
 
-  const model = useContext().model.hello;
+  const loaderData: any = useLoaderData();
+  const model = loaderData.hello;
+
   const [name, setName] = useState(model.name);
   const { register } = useForm({
     defaultValues: {

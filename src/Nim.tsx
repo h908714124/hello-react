@@ -1,10 +1,12 @@
 import { ChangeEvent, useState } from 'react';
-import { useContext } from './index';
+import { useLoaderData } from 'react-router-dom';
 import Button from './components/Button';
 
 export default function Nim() {
 
-  const model = useContext().model.nim;
+  const loaderData: any = useLoaderData();
+  const model = loaderData.nim;
+
   const [checked, setChecked] = useState(model.checked);
 
   const onCheckboxModified = (e: ChangeEvent<HTMLInputElement>) => {
