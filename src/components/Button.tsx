@@ -1,9 +1,10 @@
-import React, { ReactNode } from "react";
+import { FC } from "react";
 
-const Button: React.FC<{ onClick: () => void, children: ReactNode }> = (props) => {
+const Button: FC<any> = ({ children, ...rest }) => {
     return (
-        <button type='submit' onClick={props.onClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            {props.children}
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            {...rest}>
+            {children}
         </button>
     )
 }
