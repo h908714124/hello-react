@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
+import Button from './components/Button';
 
 export default function Hello() {
 
@@ -41,7 +42,7 @@ export default function Hello() {
         <p><input className='border' {...register("email")} onChange={onEmailModified}></input></p>
         <p><input className='border' {...register("number")} onChange={onNumberModified}></input></p>
         <p>{name}</p>
-        <p><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>OK</button></p>
+        <p><Button type='submit'>OK</Button></p>
       </div>
     </form>
   );
