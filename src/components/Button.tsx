@@ -1,9 +1,11 @@
+import className from "classnames";
 import { FC } from "react";
 
 const Button: FC<any> = ({ children, ...rest }) => {
+    const classes = className(rest.className,
+        'flex items-center px-3 py-1.5 border border-blue-500 text-blue-500 bg-white rounded-full');
     return (
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            {...rest}>
+        <button {...rest} className={classes}>
             {children}
         </button>
     )

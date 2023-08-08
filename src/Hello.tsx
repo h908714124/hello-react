@@ -42,7 +42,7 @@ export default function Hello() {
         <p><input className='border' {...register("email")} onChange={onEmailModified}></input></p>
         <p><input className='border' {...register("number")} onChange={onNumberModified}></input></p>
         <p>{name}</p>
-        <p><Button type='submit'>OK</Button></p>
+        <p><Button className='m-1' type='submit'>OK</Button></p>
       </div>
     </form>
   );
