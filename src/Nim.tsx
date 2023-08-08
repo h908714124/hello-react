@@ -26,7 +26,7 @@ export default function Nim() {
     <div>
       <p><input type="checkbox" onChange={onCheckboxModified} checked={checked}></input></p>
       <p><input onChange={onTextInputModified} defaultValue={model.name} disabled={!checked}></input></p>
-      <Button onClick={onSubmitButtonClicked}>OK</Button>
+      <Button className='m-1' onClick={onSubmitButtonClicked}>OK</Button>
     </div>
   );
 }
